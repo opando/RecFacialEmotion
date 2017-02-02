@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.facebook.login.LoginManager;
 import com.facebook.login.widget.ProfilePictureView;
 
 public class LoginProfileActivity extends AppCompatActivity {
@@ -14,7 +15,7 @@ public class LoginProfileActivity extends AppCompatActivity {
 
 
     TextView nombre;
-    Button continuar;
+    Button continuar, salir;
     ProfilePictureView profilePictureView;
 
     @Override
@@ -27,6 +28,8 @@ public class LoginProfileActivity extends AppCompatActivity {
 
         nombre = (TextView) findViewById(R.id.tv_nombre_face);
         continuar = (Button) findViewById(R.id.btn_continuar);
+        salir = (Button) findViewById(R.id.btn_salir);
+
         profilePictureView = (ProfilePictureView) findViewById(R.id.imageFace);
         continuar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -36,8 +39,19 @@ public class LoginProfileActivity extends AppCompatActivity {
             }
         });
 
+        salir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                LoginManager.getInstance().logOut();
+
+                Intent intent = new Intent(LoginProfileActivity.this,LoginActivity.class);
+                startActivity(intent);
+            }
+        });
+
         nombre.setText(login.getStringExtra("nombre"));
         profilePictureView.setProfileId(login.getStringExtra("userId"));
     }
+
 
 }

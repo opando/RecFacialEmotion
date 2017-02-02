@@ -39,4 +39,14 @@
         android:layout_alignParentEnd="true"
         android:elevation="7dp" />
 
+    <Button
+        android:text="Salir"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btn_continuar"
+        android:layout_marginTop="23dp"
+        android:id="@+id/btn_salir"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true" />
+
 </RelativeLayout>

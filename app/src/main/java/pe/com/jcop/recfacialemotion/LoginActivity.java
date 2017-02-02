@@ -15,6 +15,7 @@ import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
 import com.facebook.FacebookSdk;
 import com.facebook.Profile;
+import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 
@@ -42,7 +43,7 @@ public class LoginActivity extends AppCompatActivity {
         loginButton = (LoginButton)findViewById(R.id.login_button);
 
         //Para obtener le hash de la App y registrarla en Facebook Developer
-        getHashApp();
+        //getHashApp();
         //Seteando permisos
         loginButton.setReadPermissions(Arrays.asList("public_profile", "email", "user_birthday", "user_friends"));
 
@@ -83,9 +84,11 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    private void loginFacebook() {
 
-
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        LoginManager.getInstance().logOut();
     }
 
     private void getHashApp() {
