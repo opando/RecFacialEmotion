@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">RecFacialEmotion</string>
-    <string name="facebook_app_id">227289101011783</string>
+
     <string name="fb_login_protocol_scheme">fbAPP_ID</string>
     <string name="title_activity_init_emotion">Seleccione Imagen</string>
+
+    <string name="facebook_app_id">227289101011783</string>
+    <string name="subscription_key">df72ec7aa28d440aadab3c49f8d52ad6</string>
 </resources>
